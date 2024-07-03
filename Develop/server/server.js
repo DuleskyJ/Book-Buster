@@ -1,10 +1,10 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
-require('dotenv').config(); // Add this line
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 const { authMiddleware } = require('./utils/auth');
+require('dotenv').config();
 
 const PORT = process.env.PORT || 3011;
 const app = express();
@@ -23,10 +23,10 @@ const startApolloServer = async () => {
   server.applyMiddleware({ app });
 
   if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../client/build')));
+    app.use(express.static(path.join(__dirname, '../client/dist')));
 
     app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, '../client/build/index.html'));
+      res.sendFile(path.join(__dirname, '../client/dist/index.html'));
     });
   } else {
     app.use(express.static(path.join(__dirname, '../client/dist')));
