@@ -65,7 +65,7 @@ const SearchBooks = () => {
     <>
       <Container>
         <Form onSubmit={handleFormSubmit}>
-          <Form.Row>
+          <Row>
             <Col xs={12} md={8}>
               <Form.Control
                 name="searchInput"
@@ -81,7 +81,7 @@ const SearchBooks = () => {
                 Submit Search
               </Button>
             </Col>
-          </Form.Row>
+          </Row>
         </Form>
       </Container>
 
