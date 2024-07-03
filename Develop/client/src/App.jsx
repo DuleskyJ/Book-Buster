@@ -1,12 +1,10 @@
 import React from 'react';
 import { ApolloProvider, InMemoryCache, ApolloClient, createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { setContext } from '@apollo/client/link.context';
+import { Routes, Route } from 'react-router-dom';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
 
 // Set up the HTTP link to the GraphQL server
 const httpLink = createHttpLink({
@@ -33,18 +31,14 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<SearchBooks />} />
-            <Route path="/saved" element={<SavedBooks />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="*" element={<h1 className="display-2">Wrong page!</h1>} />
-          </Routes>
-        </>
-      </Router>
+      <>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<SearchBooks />} />
+          <Route path="/saved" element={<SavedBooks />} />
+          <Route path="*" element={<h1 className="display-2">Wrong page!</h1>} />
+        </Routes>
+      </>
     </ApolloProvider>
   );
 }
