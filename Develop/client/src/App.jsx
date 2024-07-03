@@ -1,7 +1,7 @@
 import React from 'react';
 import { ApolloProvider, InMemoryCache, ApolloClient, createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context'; // Corrected import path
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { setContext } from '@apollo/client/link/context';
+import { Route, Routes } from 'react-router-dom';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
@@ -33,18 +33,16 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <>
-          <Navbar />
-          <Routes>
-            <Route exact path="/" element={<SearchBooks />} />
-            <Route exact path="/saved" element={<SavedBooks />} />
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/signup" element={<Signup />} />
-            <Route path="*" element={<h1 className="display-2">Wrong page!</h1>} />
-          </Routes>
-        </>
-      </Router>
+      <>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<SearchBooks />} />
+          <Route exact path="/saved" element={<SavedBooks />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/signup" element={<Signup />} />
+          <Route path="*" element={<h1 className="display-2">Wrong page!</h1>} />
+        </Routes>
+      </>
     </ApolloProvider>
   );
 }
