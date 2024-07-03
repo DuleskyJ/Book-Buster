@@ -64,6 +64,7 @@ View Saved Books: Users can view a list of books they have saved.
 Authentication: Users can sign up and log in to save and view books.
 
 ## Screenshot
+![Screenshot (53)](https://github.com/DuleskyJ/Book-Buster/assets/153566037/922b80cd-e36e-45b1-92d2-9d59a9cbd807)
 
 ## License
 This project is licensed under the MIT License.
